@@ -77,16 +77,16 @@ class AplicativoFromSoftware:
         self.banco = GerenciadorBancoMySQL(**configuracao_banco)
 
     def executar(self):
-        print("🔄 Buscando dados da Wikipedia...")
+        print("Buscando dados da Wikipedia...")
         self.coletor.buscar_pagina()
 
-        print("📄 Extraindo informações da tabela infobox...")
+        print("Extraindo informações da tabela infobox...")
         dados_extraidos = self.coletor.extrair_infobox()
 
-        print("💾 Salvando no banco de dados MySQL...")
+        print("Salvando no banco de dados MySQL...")
         self.banco.inserir_dados(dados_extraidos)
 
-        print("📊 Dados armazenados no banco:")
+        print("Dados armazenados no banco:")
         for atributo, valor in self.banco.listar_dados():
             print(f"{atributo}: {valor}")
 
