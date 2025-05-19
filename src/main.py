@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 
 
 class ColetorWikipedia:
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
         self.sopa = None
 
-    def buscar_pagina(self):
-        resposta = requests.get(self.url)
+
+    def buscar_pagina(self, url):
+        resposta = requests.get(url)
         if resposta.status_code == 200:
             self.sopa = BeautifulSoup(resposta.content, 'html.parser')
         else:
