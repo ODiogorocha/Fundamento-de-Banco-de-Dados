@@ -73,7 +73,7 @@ class WikipediaScraper:
                 self.has_expansions = True
                 self.read_only_infobox = False            
         except Exception as e:
-            raise Exception(f"Erro ao ler tabelas: {e}")
+            print(f"Erro ao ler tabelas: {e}")
 
 
     def extract_infobox(self):
