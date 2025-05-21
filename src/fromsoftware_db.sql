@@ -15,9 +15,10 @@ CREATE TABLE empresa (
     nome VARCHAR(255) NOT NULL,
     fundacao DATE,
     sede VARCHAR(255),
-    head VARCHAR(255),
+    head VARCHAR(255), -- Pessoa no comando
     atividade VARCHAR(255),
     tipo VARCHAR(255),
+    numEmpregador INT,
     FOREIGN KEY(atividade) REFERENCES atividEmp(atividade),
     FOREIGN KEY(tipo) REFERENCES tipoEmp(tipo)
 );
@@ -26,10 +27,18 @@ CREATE TABLE produto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     ano_lancamento YEAR,
-    tipo VARCHAR(255),
-    idEmpresa INT NOT NULL,
-    FOREIGN KEY(idEmpresa) REFERENCES empresa(id)
+    tipo VARCHAR(255), -- Jogo ou Plataforma
+    idEmpDev INT NOT NULL,
+    FOREIGN KEY(idEmpDev) REFERENCES empresa(id),
 );
+
+CREATE TABLE publicacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idProduto INT NOT NULL,
+    idEmpPub INT NOT NULL,
+    FOREIGN KEY(idProduto) REFERENCES produto(id),
+    FOREIGN KEY(idEmpPub) REFERENCES empresa(id)
+)
 
 CREATE TABLE compatibilidade (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,7 +54,7 @@ CREATE TABLE expansao(
     nome VARCHAR(255),
     ano_lancamento YEAR,
     FOREIGN KEY(idJogo) REFERENCES produto(id),
-    PRIMARY KEY(idExpansao, idJogo)
+    PRIMARY KEY(idExpansao)
 );
 
 /* CHANGELOG
@@ -58,4 +67,7 @@ CREATE TABLE expansao(
   - remodelei o banco de dados, pois não estava completo
   - criei a tabela compatibilidade
   - criei a tabela expansao
+19/05 - Gabriel:
+  - criei a tabela publicacoes
+  - Renomeei o campo idEmpresa para idEmpDev na tabela produto
 */
