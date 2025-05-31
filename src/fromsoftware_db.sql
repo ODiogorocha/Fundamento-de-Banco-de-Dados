@@ -18,34 +18,43 @@ CREATE TABLE empresa (
     head VARCHAR(255), -- Pessoa no comando
     atividade VARCHAR(255),
     tipo VARCHAR(255),
-    numEmpregador INT,
+    numEmpregados INT,
     FOREIGN KEY(atividade) REFERENCES atividEmp(atividade),
     FOREIGN KEY(tipo) REFERENCES tipoEmp(tipo)
 );
 
-CREATE TABLE produto (
+CREATE TABLE jogo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    ano_lancamento YEAR,
-    tipo VARCHAR(255), -- Jogo ou Plataforma
     idEmpDev INT NOT NULL,
-    FOREIGN KEY(idEmpDev) REFERENCES empresa(id),
+    FOREIGN KEY(idEmpDev) REFERENCES empresa(id)
 );
 
-CREATE TABLE publicacoes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    idProduto INT NOT NULL,
-    idEmpPub INT NOT NULL,
-    FOREIGN KEY(idProduto) REFERENCES produto(id),
-    FOREIGN KEY(idEmpPub) REFERENCES empresa(id)
-)
+CREATE TABLE publisher(
+    idPublisher INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255)
+);
 
-CREATE TABLE compatibilidade (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    idProduto INT NOT NULL,
-    idPlataforma INT NOT NULL,
-    FOREIGN KEY(idProduto) REFERENCES produto(id),
-    FOREIGN KEY(idPlataforma) REFERENCES produto(id)
+CREATE TABLE publicacoes(
+    idJogo INT,
+    idPublisher INT,
+    ano YEAR,
+    FOREIGN KEY(idJogo) REFERENCES jogo(id),
+    FOREIGN KEY(idPublisher) REFERENCES publisher(idPublisher),
+    PRIMARY KEY(idJogo, idPublisher)
+);
+
+CREATE TABLE plataforma(
+    idPlataforma INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255)
+);
+
+CREATE TABLE compatibilidade(
+    idJogo INT,
+    idPlataforma INT,
+    FOREIGN KEY(idJogo) REFERENCES jogo(id),
+    FOREIGN KEY(idPlataforma) REFERENCES plataforma(idPlataforma),
+    PRIMARY KEY(idJogo, idPlataforma)
 );
 
 CREATE TABLE expansao(
@@ -53,7 +62,7 @@ CREATE TABLE expansao(
     idJogo INT,
     nome VARCHAR(255),
     ano_lancamento YEAR,
-    FOREIGN KEY(idJogo) REFERENCES produto(id),
+    FOREIGN KEY(idJogo) REFERENCES jogo(id),
     PRIMARY KEY(idExpansao)
 );
 
@@ -70,4 +79,8 @@ CREATE TABLE expansao(
 19/05 - Gabriel:
   - criei a tabela publicacoes
   - Renomeei o campo idEmpresa para idEmpDev na tabela produto
+30/05 - Gabriel:
+  - criei as tabelas publisher, plataforma, compatibilidade e publicacoes
+  - produto -> jogo
+  - adicionei o campo ano_lancamento na tabela expansao e retirei do jogo
 */
