@@ -112,7 +112,7 @@ class DataTransformer:
         return None
 
 
-    def __get_studios__(self, url):
+    def get_studios(self, url):
         if url == "https://en.wikipedia.org/wiki/Bethesda_Game_Studios":
             return 'Bethesda Game Studios'
         elif url == "https://en.wikipedia.org/wiki/FromSoftware":
@@ -123,7 +123,7 @@ class DataTransformer:
 
     # separa as linhas que possuem mais de um valor nas colunas International publisher e System
     def separate_rows(self, data, url, isGamesTable=True):
-        studio = self.__get_studios__(url)
+        studio = self.get_studios(url)
 
         for row in data.itertuples(index=False):
             if studio == 'Bethesda Game Studios' or studio == 'FromSoftware':
@@ -156,6 +156,74 @@ class DataTransformer:
                     rows_list.append(new_row)
 
         return pd.DataFrame(rows_list, columns=series_index)
+
+
+    def create_company_dataframe(self, data, studio):
+        columns = ['Nome', 'Fundação', 'Sede', 'Head', 'Atividade', 'Tipo', 'NumEmpregados']
+        serie = pd.Series(index=columns, dtype=str)
+        serie.iloc[0] = studio  # Nome da empresa
+
+        for row in data.itertuples(index=False):
+            if row[0] == 'Founded':
+                serie.iloc[1] = row[1]
+            elif row[0] == 'Headquarters':
+                serie.iloc[2] = row[1]
+            elif row[0] == 'Key people':
+                serie.iloc[3] = row[1]
+            elif row[0] == 'Industry':
+                serie.iloc[4] = row[1]
+            elif row[0] == 'Company type':
+                serie.iloc[5] = row[1]
+            elif row[0] == 'Number of employees':
+                serie.iloc[6] = row[1]
+        
+        return pd.DataFrame([serie], columns=columns)
+        
+    def format_company_data(self, data):        
+        serie = pd.Series(data.iloc[0], index=data.columns)
+        new_series = []
+        parts_founded = []
+        parts_head = []
+        parts_type = []
+        parts_num_employees = []
+
+        for row in data.itertuples(index=False):
+            parts_founded = row[1].split(';')
+
+            # Se houver ';' no campo, pega o valor antes do ';'
+            if len(parts_founded) > 1:
+                parts_founded = parts_founded[0]
+            
+            # Se houver vírgula, pega o valor após a vírgula
+            parts_founded = parts_founded.split(', ')
+            if len(parts_founded) > 1:
+                serie.loc['Fundação'] = parts_founded[1].strip()
+
+            parts_head = row[3].split('(')
+            if len(parts_head) > 1:
+                serie.loc['Head'] = parts_head[0].strip()  # Recebe o valor anterior ao '('
+
+            parts_type = row[5].split('(')
+            if len(parts_type) > 1:
+                serie.loc['Tipo'] = parts_type[0].strip()
+
+            parts_num_employees = row[6].split('>')
+            
+            # Se houver '>' no campo, pega o valor após o '>' e e anterior ao '('
+            # Se não houver, pega o valor anterior ao '('
+            # Se não houver nada disso, segue normal
+            if len(parts_num_employees) > 1: 
+                serie.loc['NumEmpregados'] = parts_num_employees[1].split('(')[0].strip()
+            else:
+                parts_num_employees = row[6].split('(')      
+                if len(parts_num_employees) > 1:
+                    serie.loc['NumEmpregados'] = parts_num_employees[0].strip()
+                else:
+                    parts_num_employees = row[6]
+
+        new_series.append(serie)
+
+        return pd.DataFrame(new_series, columns=data.columns)
             
 
 class WikipediaScraper:
@@ -239,21 +307,12 @@ class WikipediaScraper:
             self.read_tables_from_wikipedia()
 
         data = self.extract_infobox()
-        data.columns = [['Key', 'Value']]
-        
         if data is not None:
-            #df = pd.DataFrame(data, columns=['Key', 'Value'])
-            data.to_csv('src\\infobox.csv', index=False)
+            transformer = DataTransformer()
+            studio = transformer.get_studios(self.url)
+            data = transformer.create_company_dataframe(data, studio)
+            data = transformer.format_company_data(data)
             return data
         else:
             print("Não foi possível extrair as informações da empresa.")
             return None
-
-
-if __name__ == "__main__":
-    urlFS = "https://en.wikipedia.org/wiki/FromSoftware"
-    urlBTH = "https://en.wikipedia.org/wiki/Bethesda_Game_Studios"
-    scraper = WikipediaScraper(urlFS)
-    scraper.formated_company_info()
-    #data = scraper.formated_expansions_table()
-    #data = scraper.formated_products_table()
