@@ -96,6 +96,76 @@ Criar uma interface web interativa para explorar os dados, as regras de associa�
 
 ---
 
+## 4. `webscraper_pd.py`
+Claro! Aqui está a documentação reformulada no mesmo estilo solicitado:
+
+---
+
+## `wikipedia_scraper.py`
+
+### Objetivo
+
+Extrair, normalizar e estruturar dados de estúdios de jogos a partir de páginas da Wikipedia, utilizando tabelas HTML e pandas.
+
+### Descrição das Classes e Funções
+
+---
+
+### Classe: `DataTransformer`
+
+* `get_studios(url: str) -> str`
+  Retorna o nome do estúdio com base na URL da Wikipedia.
+
+* `separate_rows(data: pd.DataFrame, url: str, isGamesTable: bool = True) -> pd.DataFrame`
+  Separa múltiplos valores nas colunas `International publisher` e `System/Platform(s)`, gerando uma linha por valor.
+
+* `get_fromsoftware_expansion_platforms(expansions: pd.DataFrame, games: pd.DataFrame) -> pd.DataFrame`
+  Associa expansões de jogos da FromSoftware às plataformas dos jogos principais.
+
+* `create_company_dataframe(data: pd.DataFrame, studio: str) -> pd.DataFrame`
+  Extrai e estrutura informações institucionais da empresa a partir da infobox.
+
+* `format_company_data(data: pd.DataFrame) -> pd.DataFrame`
+  Limpa e formata os dados da empresa (removendo parênteses, símbolos, separadores, etc.).
+
+---
+
+### Classe: `WikipediaScraper`
+
+* `__init__(url: str)`
+  Inicializa o scraper com a URL e define flags de controle baseadas no estúdio.
+
+* `read_tables_from_wikipedia()`
+  Lê todas as tabelas HTML da página e define atributos internos com as tabelas lidas.
+
+* `extract_infobox() -> pd.DataFrame | None`
+  Extrai a infobox da empresa (primeira tabela da página).
+
+* `extract_products() -> pd.DataFrame | None`
+  Extrai a tabela de jogos desenvolvidos (segunda tabela da página).
+
+* `extract_expansions() -> pd.DataFrame | None`
+  Extrai a tabela de expansões, se disponível.
+
+* `formated_products_table() -> pd.DataFrame | None`
+  Aplica transformação e limpeza à tabela de jogos, separando colunas compostas.
+
+* `formated_expansions_table() -> pd.DataFrame | None`
+  Aplica transformação à tabela de expansões e associa plataformas com base nos jogos principais.
+
+* `formated_company_info() -> pd.DataFrame | None`
+  Formata e estrutura os dados institucionais da empresa a partir da infobox.
+
+---
+
+### Pontos importantes
+
+* Utiliza a biblioteca `pandas` para leitura e transformação de dados.
+* Compatível com as páginas da Wikipedia dos estúdios *FromSoftware* e *Bethesda Game Studios*.
+* Normaliza entradas compostas para facilitar análises posteriores e integração com bancos de dados.
+
+---
+
 ## Instalação das Dependências
 
 Execute:
