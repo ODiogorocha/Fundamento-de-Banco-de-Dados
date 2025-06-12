@@ -9,21 +9,21 @@ class DatabaseConnector:
     def __init__(self, config):
         self.connection = mysql.connector.connect(**config)
 
-    def get_product_expansion_data(self):
+    def get_game_expansion_data(self):
         query = """
         SELECT 
-            p.id AS id_jogo, 
-            p.nome AS jogo, 
+            j.id AS id_jogo, 
+            j.nome AS jogo, 
             e.nome AS expansao
-        FROM produto p
-        LEFT JOIN expansao e ON p.id = e.idJogo
-        ORDER BY p.nome;
+        FROM jogo j
+        LEFT JOIN expansao e ON j.id = e.idJogo
+        ORDER BY j.nome;
         """
         return pd.read_sql(query, self.connection)
 
     def get_release_year_data(self):
         query = """
-        SELECT nome, ano_lancamento, 'Jogo Base' AS tipo FROM produto
+        SELECT nome, NULL AS ano_lancamento, 'Jogo Base' AS tipo FROM jogo
         UNION ALL
         SELECT nome, ano_lancamento, 'Expansao' AS tipo FROM expansao;
         """
@@ -75,8 +75,8 @@ def plot_rules(rules):
 def main():
     db_config = {
         'host': 'localhost',
-        'user': 'seu_usuario',
-        'password': 'sua_senha',
+        'user': 'seu_usuario',      # Substitua aqui
+        'password': 'sua_senha',    # Substitua aqui
         'database': 'fromsoftware_db'
     }
 
@@ -84,7 +84,7 @@ def main():
     connector = DatabaseConnector(db_config)
 
     print("Carregando dados de jogos e expansões...")
-    expansion_data = connector.get_product_expansion_data()
+    expansion_data = connector.get_game_expansion_data()
     transaction_df = build_transaction_dataset(expansion_data)
 
     print("Executando Apriori...")
