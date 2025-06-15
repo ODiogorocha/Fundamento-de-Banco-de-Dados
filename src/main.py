@@ -6,8 +6,8 @@ import mysql.connector
 # Importa as classes e funções dos outros arquivos
 from webscraper_pd import WikipediaScraper, DataTransformer
 from data_analysis import DatabaseConnector, build_transaction_dataset, plot_release_timeline
-from data_visualization import run_query, plot_bar_chart, generate_visualizations as generate_sql_visualizations
 from database import connect as db_connect # Renomeado para evitar conflito
+from plotter import * 
 
 def setup_database(config):
     """
@@ -258,8 +258,7 @@ def main():
     db_connector_query = DatabaseConnector(db_config)
 
     # Visualizações SQL genéricas
-    generate_sql_visualizations(db_connector_query)
-
+    plot_bar()
     # Visualização timeline dos lançamentos de jogos (por empresa)
     print("\nVisualizando linha do tempo de lançamentos de jogos:")
     plot_release_timeline(db_connector_query)
