@@ -24,9 +24,9 @@ def plot_bar_chart(x, y, title, xlabel, ylabel):
 def generate_visualizations():
     # Query 1: Países com mais empresas
     query1 = """
-    SELECT pais_origem, COUNT(*) AS quantidade_empresas
+    SELECT sede, COUNT(*) AS quantidade_empresas
     FROM empresa
-    GROUP BY pais_origem
+    GROUP BY sede
     ORDER BY quantidade_empresas DESC
     LIMIT 10;
     """
@@ -43,7 +43,7 @@ def generate_visualizations():
     query2 = """
     SELECT e.nome, COUNT(j.id) AS quantidade_jogos
     FROM jogo j
-    JOIN empresa e ON j.idEmpresa = e.id
+    JOIN empresa e ON j.idEmpDev = e.id -- **CONFIRME ESTA LINHA**
     GROUP BY e.nome
     ORDER BY quantidade_jogos DESC
     LIMIT 10;

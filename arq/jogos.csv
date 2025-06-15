@@ -1,0 +1,803 @@
+id,nome,idEmpDev
+1,"King's Field",1
+2,"King's Field II",1
+3,"King's Field II",1
+4,"King's Field III",1
+5,"Armored Core",1
+6,"Armored Core: Project Phantasma",1
+7,"Shadow Tower",1
+8,"Echo Night",1
+9,"Armored Core: Master of Arena",1
+10,"Spriggan: Lunar Verse",1
+11,"Frame Gride",1
+12,"Echo Night 2: The Lord of Nightmares",1
+13,"Eternal Ring",1
+14,"Eternal Ring",1
+15,Evergrace,1
+16,Evergrace,1
+17,"Armored Core 2",1
+18,"Armored Core 2",1
+19,"The Adventures of Cookie & Cream",1
+20,"The Adventures of Cookie & Cream",1
+21,"Armored Core 2: Another Age",1
+22,"Armored Core 2: Another Age",1
+23,"Forever Kingdom",1
+24,"King's Field IV",1
+25,"King's Field IV",1
+26,"Armored Core 3",1
+27,"Armored Core 3",1
+28,"Armored Core 3",1
+29,"Armored Core 3",1
+30,"Lost Kingdoms",1
+31,"Murakumo: Renegade Mech Pursuit",1
+32,"Otogi: Myth of Demons",1
+33,"Silent Line: Armored Core",1
+34,"Silent Line: Armored Core",1
+35,"Thousand Land",1
+36,"Lost Kingdoms II",1
+37,"Shadow Tower Abyss",1
+38,"Otogi 2: Immortal Warriors",1
+39,"Echo Night: Beyond",1
+40,"Echo Night: Beyond",1
+41,"Armored Core: Nexus",1
+42,Kuon,1
+43,Kuon,1
+44,"Armored Core: Nine Breaker",1
+45,"Armored Core: Nine Breaker",1
+46,"Armored Core: Formula Front",1
+47,"Armored Core: Formula Front",1
+48,"Armored Core: Formula Front",1
+49,"Armored Core: Formula Front",1
+50,"Metal Wolf Chaos",1
+51,"Yoshitsune Eiyūden: The Story of Hero Yoshitsune",1
+52,"Another Century's Episode",1
+53,"Armored Core: Last Raven",1
+54,"Armored Core: Last Raven",1
+55,"Armored Core: Last Raven",1
+56,"Armored Core: Last Raven",1
+57,"Enchanted Arms",1
+58,"Enchanted Arms",1
+59,"Another Century's Episode 2",1
+60,Chromehounds,1
+61,"King's Field: Additional I",1
+62,"King's Field: Additional II",1
+63,"Armored Core 4",1
+64,"Armored Core 4",1
+65,"Armored Core 4",1
+66,"Armored Core 4",1
+67,"Nanpure VOW",1
+68,"Iraroji VOW",1
+69,"Another Century's Episode 3: The Final",1
+70,"Armored Core: For Answer",1
+71,"Armored Core: For Answer",1
+72,"Shadow Assault: Tenchu",1
+73,"Inugami-ke no Ichizoku",1
+74,"Ninja Blade",1
+75,"Ninja Blade",1
+76,"Demon's Souls",1
+77,"Demon's Souls",1
+78,"Demon's Souls",1
+79,Yatsuhaka-mura,1
+80,"Another Century's Episode: R",1
+81,"Monster Hunter Diary",1
+82,"Another Century's Episode Portable",1
+83,"Dark Souls",1
+84,"Dark Souls",1
+85,"Dark Souls",1
+86,"Armored Core V",1
+87,"Armored Core V",1
+88,"Mobile Suit Gundam Unicorn",1
+89,"Steel Battalion: Heavy Armor",1
+90,"Armored Core: Verdict Day",1
+91,"Armored Core: Verdict Day",1
+92,"Dark Souls II",1
+93,"Dark Souls II",1
+94,"Dark Souls II",1
+95,"Dark Souls II: Scholar of the First Sin",1
+96,"Dark Souls II: Scholar of the First Sin",1
+97,"Dark Souls II: Scholar of the First Sin",1
+98,"Dark Souls II: Scholar of the First Sin",1
+99,"Dark Souls II: Scholar of the First Sin",1
+100,Bloodborne,1
+101,"Dark Souls III",1
+102,"Dark Souls III",1
+103,"Dark Souls III",1
+104,Déraciné,1
+105,"Sekiro: Shadows Die Twice",1
+106,"Sekiro: Shadows Die Twice",1
+107,"Sekiro: Shadows Die Twice",1
+108,"Sekiro: Shadows Die Twice",1
+109,"Elden Ring",1
+110,"Elden Ring",1
+111,"Elden Ring",1
+112,"Elden Ring",1
+113,"Elden Ring",1
+114,"Elden Ring",1
+115,"Armored Core VI: Fires of Rubicon",1
+116,"Armored Core VI: Fires of Rubicon",1
+117,"Armored Core VI: Fires of Rubicon",1
+118,"Armored Core VI: Fires of Rubicon",1
+119,"Armored Core VI: Fires of Rubicon",1
+120,"Elden Ring Nightreign",1
+121,"Elden Ring Nightreign",1
+122,"Elden Ring Nightreign",1
+123,"Elden Ring Nightreign",1
+124,"Elden Ring Nightreign",1
+125,"The Duskbloods",1
+126,"King's Field",2
+127,"King's Field II",2
+128,"King's Field II",2
+129,"King's Field III",2
+130,"Armored Core",2
+131,"Armored Core: Project Phantasma",2
+132,"Shadow Tower",2
+133,"Echo Night",2
+134,"Armored Core: Master of Arena",2
+135,"Spriggan: Lunar Verse",2
+136,"Frame Gride",2
+137,"Echo Night 2: The Lord of Nightmares",2
+138,"Eternal Ring",2
+139,"Eternal Ring",2
+140,Evergrace,2
+141,Evergrace,2
+142,"Armored Core 2",2
+143,"Armored Core 2",2
+144,"The Adventures of Cookie & Cream",2
+145,"The Adventures of Cookie & Cream",2
+146,"Armored Core 2: Another Age",2
+147,"Armored Core 2: Another Age",2
+148,"Forever Kingdom",2
+149,"King's Field IV",2
+150,"King's Field IV",2
+151,"Armored Core 3",2
+152,"Armored Core 3",2
+153,"Armored Core 3",2
+154,"Armored Core 3",2
+155,"Lost Kingdoms",2
+156,"Murakumo: Renegade Mech Pursuit",2
+157,"Otogi: Myth of Demons",2
+158,"Silent Line: Armored Core",2
+159,"Silent Line: Armored Core",2
+160,"Thousand Land",2
+161,"Lost Kingdoms II",2
+162,"Shadow Tower Abyss",2
+163,"Otogi 2: Immortal Warriors",2
+164,"Echo Night: Beyond",2
+165,"Echo Night: Beyond",2
+166,"Armored Core: Nexus",2
+167,Kuon,2
+168,Kuon,2
+169,"Armored Core: Nine Breaker",2
+170,"Armored Core: Nine Breaker",2
+171,"Armored Core: Formula Front",2
+172,"Armored Core: Formula Front",2
+173,"Armored Core: Formula Front",2
+174,"Armored Core: Formula Front",2
+175,"Metal Wolf Chaos",2
+176,"Yoshitsune Eiyūden: The Story of Hero Yoshitsune",2
+177,"Another Century's Episode",2
+178,"Armored Core: Last Raven",2
+179,"Armored Core: Last Raven",2
+180,"Armored Core: Last Raven",2
+181,"Armored Core: Last Raven",2
+182,"Enchanted Arms",2
+183,"Enchanted Arms",2
+184,"Another Century's Episode 2",2
+185,Chromehounds,2
+186,"King's Field: Additional I",2
+187,"King's Field: Additional II",2
+188,"Armored Core 4",2
+189,"Armored Core 4",2
+190,"Armored Core 4",2
+191,"Armored Core 4",2
+192,"Nanpure VOW",2
+193,"Iraroji VOW",2
+194,"Another Century's Episode 3: The Final",2
+195,"Armored Core: For Answer",2
+196,"Armored Core: For Answer",2
+197,"Shadow Assault: Tenchu",2
+198,"Inugami-ke no Ichizoku",2
+199,"Ninja Blade",2
+200,"Ninja Blade",2
+201,"Demon's Souls",2
+202,"Demon's Souls",2
+203,"Demon's Souls",2
+204,Yatsuhaka-mura,2
+205,"Another Century's Episode: R",2
+206,"Monster Hunter Diary",2
+207,"Another Century's Episode Portable",2
+208,"Dark Souls",2
+209,"Dark Souls",2
+210,"Dark Souls",2
+211,"Armored Core V",2
+212,"Armored Core V",2
+213,"Mobile Suit Gundam Unicorn",2
+214,"Steel Battalion: Heavy Armor",2
+215,"Armored Core: Verdict Day",2
+216,"Armored Core: Verdict Day",2
+217,"Dark Souls II",2
+218,"Dark Souls II",2
+219,"Dark Souls II",2
+220,"Dark Souls II: Scholar of the First Sin",2
+221,"Dark Souls II: Scholar of the First Sin",2
+222,"Dark Souls II: Scholar of the First Sin",2
+223,"Dark Souls II: Scholar of the First Sin",2
+224,"Dark Souls II: Scholar of the First Sin",2
+225,Bloodborne,2
+226,"Dark Souls III",2
+227,"Dark Souls III",2
+228,"Dark Souls III",2
+229,Déraciné,2
+230,"Sekiro: Shadows Die Twice",2
+231,"Sekiro: Shadows Die Twice",2
+232,"Sekiro: Shadows Die Twice",2
+233,"Sekiro: Shadows Die Twice",2
+234,"Elden Ring",2
+235,"Elden Ring",2
+236,"Elden Ring",2
+237,"Elden Ring",2
+238,"Elden Ring",2
+239,"Elden Ring",2
+240,"Armored Core VI: Fires of Rubicon",2
+241,"Armored Core VI: Fires of Rubicon",2
+242,"Armored Core VI: Fires of Rubicon",2
+243,"Armored Core VI: Fires of Rubicon",2
+244,"Armored Core VI: Fires of Rubicon",2
+245,"Elden Ring Nightreign",2
+246,"Elden Ring Nightreign",2
+247,"Elden Ring Nightreign",2
+248,"Elden Ring Nightreign",2
+249,"Elden Ring Nightreign",2
+250,"The Duskbloods",2
+251,"King's Field",3
+252,"King's Field II",3
+253,"King's Field II",3
+254,"King's Field III",3
+255,"Armored Core",3
+256,"Armored Core: Project Phantasma",3
+257,"Shadow Tower",3
+258,"Echo Night",3
+259,"Armored Core: Master of Arena",3
+260,"Spriggan: Lunar Verse",3
+261,"Frame Gride",3
+262,"Echo Night 2: The Lord of Nightmares",3
+263,"Eternal Ring",3
+264,"Eternal Ring",3
+265,Evergrace,3
+266,Evergrace,3
+267,"Armored Core 2",3
+268,"Armored Core 2",3
+269,"The Adventures of Cookie & Cream",3
+270,"The Adventures of Cookie & Cream",3
+271,"Armored Core 2: Another Age",3
+272,"Armored Core 2: Another Age",3
+273,"Forever Kingdom",3
+274,"King's Field IV",3
+275,"King's Field IV",3
+276,"Armored Core 3",3
+277,"Armored Core 3",3
+278,"Armored Core 3",3
+279,"Armored Core 3",3
+280,"Lost Kingdoms",3
+281,"Murakumo: Renegade Mech Pursuit",3
+282,"Otogi: Myth of Demons",3
+283,"Silent Line: Armored Core",3
+284,"Silent Line: Armored Core",3
+285,"Thousand Land",3
+286,"Lost Kingdoms II",3
+287,"Shadow Tower Abyss",3
+288,"Otogi 2: Immortal Warriors",3
+289,"Echo Night: Beyond",3
+290,"Echo Night: Beyond",3
+291,"Armored Core: Nexus",3
+292,Kuon,3
+293,Kuon,3
+294,"Armored Core: Nine Breaker",3
+295,"Armored Core: Nine Breaker",3
+296,"Armored Core: Formula Front",3
+297,"Armored Core: Formula Front",3
+298,"Armored Core: Formula Front",3
+299,"Armored Core: Formula Front",3
+300,"Metal Wolf Chaos",3
+301,"Yoshitsune Eiyūden: The Story of Hero Yoshitsune",3
+302,"Another Century's Episode",3
+303,"Armored Core: Last Raven",3
+304,"Armored Core: Last Raven",3
+305,"Armored Core: Last Raven",3
+306,"Armored Core: Last Raven",3
+307,"Enchanted Arms",3
+308,"Enchanted Arms",3
+309,"Another Century's Episode 2",3
+310,Chromehounds,3
+311,"King's Field: Additional I",3
+312,"King's Field: Additional II",3
+313,"Armored Core 4",3
+314,"Armored Core 4",3
+315,"Armored Core 4",3
+316,"Armored Core 4",3
+317,"Nanpure VOW",3
+318,"Iraroji VOW",3
+319,"Another Century's Episode 3: The Final",3
+320,"Armored Core: For Answer",3
+321,"Armored Core: For Answer",3
+322,"Shadow Assault: Tenchu",3
+323,"Inugami-ke no Ichizoku",3
+324,"Ninja Blade",3
+325,"Ninja Blade",3
+326,"Demon's Souls",3
+327,"Demon's Souls",3
+328,"Demon's Souls",3
+329,Yatsuhaka-mura,3
+330,"Another Century's Episode: R",3
+331,"Monster Hunter Diary",3
+332,"Another Century's Episode Portable",3
+333,"Dark Souls",3
+334,"Dark Souls",3
+335,"Dark Souls",3
+336,"Armored Core V",3
+337,"Armored Core V",3
+338,"Mobile Suit Gundam Unicorn",3
+339,"Steel Battalion: Heavy Armor",3
+340,"Armored Core: Verdict Day",3
+341,"Armored Core: Verdict Day",3
+342,"Dark Souls II",3
+343,"Dark Souls II",3
+344,"Dark Souls II",3
+345,"Dark Souls II: Scholar of the First Sin",3
+346,"Dark Souls II: Scholar of the First Sin",3
+347,"Dark Souls II: Scholar of the First Sin",3
+348,"Dark Souls II: Scholar of the First Sin",3
+349,"Dark Souls II: Scholar of the First Sin",3
+350,Bloodborne,3
+351,"Dark Souls III",3
+352,"Dark Souls III",3
+353,"Dark Souls III",3
+354,Déraciné,3
+355,"Sekiro: Shadows Die Twice",3
+356,"Sekiro: Shadows Die Twice",3
+357,"Sekiro: Shadows Die Twice",3
+358,"Sekiro: Shadows Die Twice",3
+359,"Elden Ring",3
+360,"Elden Ring",3
+361,"Elden Ring",3
+362,"Elden Ring",3
+363,"Elden Ring",3
+364,"Elden Ring",3
+365,"Armored Core VI: Fires of Rubicon",3
+366,"Armored Core VI: Fires of Rubicon",3
+367,"Armored Core VI: Fires of Rubicon",3
+368,"Armored Core VI: Fires of Rubicon",3
+369,"Armored Core VI: Fires of Rubicon",3
+370,"Elden Ring Nightreign",3
+371,"Elden Ring Nightreign",3
+372,"Elden Ring Nightreign",3
+373,"Elden Ring Nightreign",3
+374,"Elden Ring Nightreign",3
+375,"The Duskbloods",3
+376,"King's Field",4
+377,"King's Field II",4
+378,"King's Field II",4
+379,"King's Field III",4
+380,"Armored Core",4
+381,"Armored Core: Project Phantasma",4
+382,"Shadow Tower",4
+383,"Echo Night",4
+384,"Armored Core: Master of Arena",4
+385,"Spriggan: Lunar Verse",4
+386,"Frame Gride",4
+387,"Echo Night 2: The Lord of Nightmares",4
+388,"Eternal Ring",4
+389,"Eternal Ring",4
+390,Evergrace,4
+391,Evergrace,4
+392,"Armored Core 2",4
+393,"Armored Core 2",4
+394,"The Adventures of Cookie & Cream",4
+395,"The Adventures of Cookie & Cream",4
+396,"Armored Core 2: Another Age",4
+397,"Armored Core 2: Another Age",4
+398,"Forever Kingdom",4
+399,"King's Field IV",4
+400,"King's Field IV",4
+401,"Armored Core 3",4
+402,"Armored Core 3",4
+403,"Armored Core 3",4
+404,"Armored Core 3",4
+405,"Lost Kingdoms",4
+406,"Murakumo: Renegade Mech Pursuit",4
+407,"Otogi: Myth of Demons",4
+408,"Silent Line: Armored Core",4
+409,"Silent Line: Armored Core",4
+410,"Thousand Land",4
+411,"Lost Kingdoms II",4
+412,"Shadow Tower Abyss",4
+413,"Otogi 2: Immortal Warriors",4
+414,"Echo Night: Beyond",4
+415,"Echo Night: Beyond",4
+416,"Armored Core: Nexus",4
+417,Kuon,4
+418,Kuon,4
+419,"Armored Core: Nine Breaker",4
+420,"Armored Core: Nine Breaker",4
+421,"Armored Core: Formula Front",4
+422,"Armored Core: Formula Front",4
+423,"Armored Core: Formula Front",4
+424,"Armored Core: Formula Front",4
+425,"Metal Wolf Chaos",4
+426,"Yoshitsune Eiyūden: The Story of Hero Yoshitsune",4
+427,"Another Century's Episode",4
+428,"Armored Core: Last Raven",4
+429,"Armored Core: Last Raven",4
+430,"Armored Core: Last Raven",4
+431,"Armored Core: Last Raven",4
+432,"Enchanted Arms",4
+433,"Enchanted Arms",4
+434,"Another Century's Episode 2",4
+435,Chromehounds,4
+436,"King's Field: Additional I",4
+437,"King's Field: Additional II",4
+438,"Armored Core 4",4
+439,"Armored Core 4",4
+440,"Armored Core 4",4
+441,"Armored Core 4",4
+442,"Nanpure VOW",4
+443,"Iraroji VOW",4
+444,"Another Century's Episode 3: The Final",4
+445,"Armored Core: For Answer",4
+446,"Armored Core: For Answer",4
+447,"Shadow Assault: Tenchu",4
+448,"Inugami-ke no Ichizoku",4
+449,"Ninja Blade",4
+450,"Ninja Blade",4
+451,"Demon's Souls",4
+452,"Demon's Souls",4
+453,"Demon's Souls",4
+454,Yatsuhaka-mura,4
+455,"Another Century's Episode: R",4
+456,"Monster Hunter Diary",4
+457,"Another Century's Episode Portable",4
+458,"Dark Souls",4
+459,"Dark Souls",4
+460,"Dark Souls",4
+461,"Armored Core V",4
+462,"Armored Core V",4
+463,"Mobile Suit Gundam Unicorn",4
+464,"Steel Battalion: Heavy Armor",4
+465,"Armored Core: Verdict Day",4
+466,"Armored Core: Verdict Day",4
+467,"Dark Souls II",4
+468,"Dark Souls II",4
+469,"Dark Souls II",4
+470,"Dark Souls II: Scholar of the First Sin",4
+471,"Dark Souls II: Scholar of the First Sin",4
+472,"Dark Souls II: Scholar of the First Sin",4
+473,"Dark Souls II: Scholar of the First Sin",4
+474,"Dark Souls II: Scholar of the First Sin",4
+475,Bloodborne,4
+476,"Dark Souls III",4
+477,"Dark Souls III",4
+478,"Dark Souls III",4
+479,Déraciné,4
+480,"Sekiro: Shadows Die Twice",4
+481,"Sekiro: Shadows Die Twice",4
+482,"Sekiro: Shadows Die Twice",4
+483,"Sekiro: Shadows Die Twice",4
+484,"Elden Ring",4
+485,"Elden Ring",4
+486,"Elden Ring",4
+487,"Elden Ring",4
+488,"Elden Ring",4
+489,"Elden Ring",4
+490,"Armored Core VI: Fires of Rubicon",4
+491,"Armored Core VI: Fires of Rubicon",4
+492,"Armored Core VI: Fires of Rubicon",4
+493,"Armored Core VI: Fires of Rubicon",4
+494,"Armored Core VI: Fires of Rubicon",4
+495,"Elden Ring Nightreign",4
+496,"Elden Ring Nightreign",4
+497,"Elden Ring Nightreign",4
+498,"Elden Ring Nightreign",4
+499,"Elden Ring Nightreign",4
+500,"The Duskbloods",4
+501,"King's Field",5
+502,"King's Field II",5
+503,"King's Field II",5
+504,"King's Field III",5
+505,"Armored Core",5
+506,"Armored Core: Project Phantasma",5
+507,"Shadow Tower",5
+508,"Echo Night",5
+509,"Armored Core: Master of Arena",5
+510,"Spriggan: Lunar Verse",5
+511,"Frame Gride",5
+512,"Echo Night 2: The Lord of Nightmares",5
+513,"Eternal Ring",5
+514,"Eternal Ring",5
+515,Evergrace,5
+516,Evergrace,5
+517,"Armored Core 2",5
+518,"Armored Core 2",5
+519,"The Adventures of Cookie & Cream",5
+520,"The Adventures of Cookie & Cream",5
+521,"Armored Core 2: Another Age",5
+522,"Armored Core 2: Another Age",5
+523,"Forever Kingdom",5
+524,"King's Field IV",5
+525,"King's Field IV",5
+526,"Armored Core 3",5
+527,"Armored Core 3",5
+528,"Armored Core 3",5
+529,"Armored Core 3",5
+530,"Lost Kingdoms",5
+531,"Murakumo: Renegade Mech Pursuit",5
+532,"Otogi: Myth of Demons",5
+533,"Silent Line: Armored Core",5
+534,"Silent Line: Armored Core",5
+535,"Thousand Land",5
+536,"Lost Kingdoms II",5
+537,"Shadow Tower Abyss",5
+538,"Otogi 2: Immortal Warriors",5
+539,"Echo Night: Beyond",5
+540,"Echo Night: Beyond",5
+541,"Armored Core: Nexus",5
+542,Kuon,5
+543,Kuon,5
+544,"Armored Core: Nine Breaker",5
+545,"Armored Core: Nine Breaker",5
+546,"Armored Core: Formula Front",5
+547,"Armored Core: Formula Front",5
+548,"Armored Core: Formula Front",5
+549,"Armored Core: Formula Front",5
+550,"Metal Wolf Chaos",5
+551,"Yoshitsune Eiyūden: The Story of Hero Yoshitsune",5
+552,"Another Century's Episode",5
+553,"Armored Core: Last Raven",5
+554,"Armored Core: Last Raven",5
+555,"Armored Core: Last Raven",5
+556,"Armored Core: Last Raven",5
+557,"Enchanted Arms",5
+558,"Enchanted Arms",5
+559,"Another Century's Episode 2",5
+560,Chromehounds,5
+561,"King's Field: Additional I",5
+562,"King's Field: Additional II",5
+563,"Armored Core 4",5
+564,"Armored Core 4",5
+565,"Armored Core 4",5
+566,"Armored Core 4",5
+567,"Nanpure VOW",5
+568,"Iraroji VOW",5
+569,"Another Century's Episode 3: The Final",5
+570,"Armored Core: For Answer",5
+571,"Armored Core: For Answer",5
+572,"Shadow Assault: Tenchu",5
+573,"Inugami-ke no Ichizoku",5
+574,"Ninja Blade",5
+575,"Ninja Blade",5
+576,"Demon's Souls",5
+577,"Demon's Souls",5
+578,"Demon's Souls",5
+579,Yatsuhaka-mura,5
+580,"Another Century's Episode: R",5
+581,"Monster Hunter Diary",5
+582,"Another Century's Episode Portable",5
+583,"Dark Souls",5
+584,"Dark Souls",5
+585,"Dark Souls",5
+586,"Armored Core V",5
+587,"Armored Core V",5
+588,"Mobile Suit Gundam Unicorn",5
+589,"Steel Battalion: Heavy Armor",5
+590,"Armored Core: Verdict Day",5
+591,"Armored Core: Verdict Day",5
+592,"Dark Souls II",5
+593,"Dark Souls II",5
+594,"Dark Souls II",5
+595,"Dark Souls II: Scholar of the First Sin",5
+596,"Dark Souls II: Scholar of the First Sin",5
+597,"Dark Souls II: Scholar of the First Sin",5
+598,"Dark Souls II: Scholar of the First Sin",5
+599,"Dark Souls II: Scholar of the First Sin",5
+600,Bloodborne,5
+601,"Dark Souls III",5
+602,"Dark Souls III",5
+603,"Dark Souls III",5
+604,Déraciné,5
+605,"Sekiro: Shadows Die Twice",5
+606,"Sekiro: Shadows Die Twice",5
+607,"Sekiro: Shadows Die Twice",5
+608,"Sekiro: Shadows Die Twice",5
+609,"Elden Ring",5
+610,"Elden Ring",5
+611,"Elden Ring",5
+612,"Elden Ring",5
+613,"Elden Ring",5
+614,"Elden Ring",5
+615,"Armored Core VI: Fires of Rubicon",5
+616,"Armored Core VI: Fires of Rubicon",5
+617,"Armored Core VI: Fires of Rubicon",5
+618,"Armored Core VI: Fires of Rubicon",5
+619,"Armored Core VI: Fires of Rubicon",5
+620,"Elden Ring Nightreign",5
+621,"Elden Ring Nightreign",5
+622,"Elden Ring Nightreign",5
+623,"Elden Ring Nightreign",5
+624,"Elden Ring Nightreign",5
+625,"The Duskbloods",5
+626,"King's Field",6
+627,"King's Field II",6
+628,"King's Field II",6
+629,"King's Field III",6
+630,"Armored Core",6
+631,"Armored Core: Project Phantasma",6
+632,"Shadow Tower",6
+633,"Echo Night",6
+634,"Armored Core: Master of Arena",6
+635,"Spriggan: Lunar Verse",6
+636,"Frame Gride",6
+637,"Echo Night 2: The Lord of Nightmares",6
+638,"Eternal Ring",6
+639,"Eternal Ring",6
+640,Evergrace,6
+641,Evergrace,6
+642,"Armored Core 2",6
+643,"Armored Core 2",6
+644,"The Adventures of Cookie & Cream",6
+645,"The Adventures of Cookie & Cream",6
+646,"Armored Core 2: Another Age",6
+647,"Armored Core 2: Another Age",6
+648,"Forever Kingdom",6
+649,"King's Field IV",6
+650,"King's Field IV",6
+651,"Armored Core 3",6
+652,"Armored Core 3",6
+653,"Armored Core 3",6
+654,"Armored Core 3",6
+655,"Lost Kingdoms",6
+656,"Murakumo: Renegade Mech Pursuit",6
+657,"Otogi: Myth of Demons",6
+658,"Silent Line: Armored Core",6
+659,"Silent Line: Armored Core",6
+660,"Thousand Land",6
+661,"Lost Kingdoms II",6
+662,"Shadow Tower Abyss",6
+663,"Otogi 2: Immortal Warriors",6
+664,"Echo Night: Beyond",6
+665,"Echo Night: Beyond",6
+666,"Armored Core: Nexus",6
+667,Kuon,6
+668,Kuon,6
+669,"Armored Core: Nine Breaker",6
+670,"Armored Core: Nine Breaker",6
+671,"Armored Core: Formula Front",6
+672,"Armored Core: Formula Front",6
+673,"Armored Core: Formula Front",6
+674,"Armored Core: Formula Front",6
+675,"Metal Wolf Chaos",6
+676,"Yoshitsune Eiyūden: The Story of Hero Yoshitsune",6
+677,"Another Century's Episode",6
+678,"Armored Core: Last Raven",6
+679,"Armored Core: Last Raven",6
+680,"Armored Core: Last Raven",6
+681,"Armored Core: Last Raven",6
+682,"Enchanted Arms",6
+683,"Enchanted Arms",6
+684,"Another Century's Episode 2",6
+685,Chromehounds,6
+686,"King's Field: Additional I",6
+687,"King's Field: Additional II",6
+688,"Armored Core 4",6
+689,"Armored Core 4",6
+690,"Armored Core 4",6
+691,"Armored Core 4",6
+692,"Nanpure VOW",6
+693,"Iraroji VOW",6
+694,"Another Century's Episode 3: The Final",6
+695,"Armored Core: For Answer",6
+696,"Armored Core: For Answer",6
+697,"Shadow Assault: Tenchu",6
+698,"Inugami-ke no Ichizoku",6
+699,"Ninja Blade",6
+700,"Ninja Blade",6
+701,"Demon's Souls",6
+702,"Demon's Souls",6
+703,"Demon's Souls",6
+704,Yatsuhaka-mura,6
+705,"Another Century's Episode: R",6
+706,"Monster Hunter Diary",6
+707,"Another Century's Episode Portable",6
+708,"Dark Souls",6
+709,"Dark Souls",6
+710,"Dark Souls",6
+711,"Armored Core V",6
+712,"Armored Core V",6
+713,"Mobile Suit Gundam Unicorn",6
+714,"Steel Battalion: Heavy Armor",6
+715,"Armored Core: Verdict Day",6
+716,"Armored Core: Verdict Day",6
+717,"Dark Souls II",6
+718,"Dark Souls II",6
+719,"Dark Souls II",6
+720,"Dark Souls II: Scholar of the First Sin",6
+721,"Dark Souls II: Scholar of the First Sin",6
+722,"Dark Souls II: Scholar of the First Sin",6
+723,"Dark Souls II: Scholar of the First Sin",6
+724,"Dark Souls II: Scholar of the First Sin",6
+725,Bloodborne,6
+726,"Dark Souls III",6
+727,"Dark Souls III",6
+728,"Dark Souls III",6
+729,Déraciné,6
+730,"Sekiro: Shadows Die Twice",6
+731,"Sekiro: Shadows Die Twice",6
+732,"Sekiro: Shadows Die Twice",6
+733,"Sekiro: Shadows Die Twice",6
+734,"Elden Ring",6
+735,"Elden Ring",6
+736,"Elden Ring",6
+737,"Elden Ring",6
+738,"Elden Ring",6
+739,"Elden Ring",6
+740,"Armored Core VI: Fires of Rubicon",6
+741,"Armored Core VI: Fires of Rubicon",6
+742,"Armored Core VI: Fires of Rubicon",6
+743,"Armored Core VI: Fires of Rubicon",6
+744,"Armored Core VI: Fires of Rubicon",6
+745,"Elden Ring Nightreign",6
+746,"Elden Ring Nightreign",6
+747,"Elden Ring Nightreign",6
+748,"Elden Ring Nightreign",6
+749,"Elden Ring Nightreign",6
+750,"The Duskbloods",6
+751,"The Elder Scrolls III: Morrowind",7
+752,"IHRA Professional Drag Racing 2005",7
+753,"IHRA Professional Drag Racing 2005",7
+754,"IHRA Drag Racing: Sportsman Edition",7
+755,"IHRA Drag Racing: Sportsman Edition",7
+756,"IHRA Drag Racing: Sportsman Edition",7
+757,"The Elder Scrolls IV: Oblivion",7
+758,"The Elder Scrolls IV: Oblivion",7
+759,"The Elder Scrolls IV: Oblivion",7
+760,"Fallout 3",7
+761,"Fallout 3",7
+762,"Fallout 3",7
+763,"The Elder Scrolls V: Skyrim",7
+764,"The Elder Scrolls V: Skyrim",7
+765,"The Elder Scrolls V: Skyrim",7
+766,"The Elder Scrolls V: Skyrim",7
+767,"The Elder Scrolls V: Skyrim",7
+768,"The Elder Scrolls V: Skyrim",7
+769,"Fallout Shelter",7
+770,"Fallout Shelter",7
+771,"Fallout Shelter",7
+772,"Fallout Shelter",7
+773,"Fallout Shelter",7
+774,"Fallout Shelter",7
+775,"Fallout 4",7
+776,"Fallout 4",7
+777,"Fallout 4",7
+778,"Fallout 4",7
+779,"Fallout 4",7
+780,"The Elder Scrolls V: Skyrim – Special Edition",7
+781,"The Elder Scrolls V: Skyrim – Special Edition",7
+782,"The Elder Scrolls V: Skyrim – Special Edition",7
+783,"The Elder Scrolls V: Skyrim – Special Edition",7
+784,"The Elder Scrolls V: Skyrim – Special Edition",7
+785,"The Elder Scrolls V: Skyrim – Special Edition",7
+786,"The Elder Scrolls V: Skyrim VR",7
+787,"The Elder Scrolls V: Skyrim VR",7
+788,"Fallout 4 VR",7
+789,"Fallout 76",7
+790,"Fallout 76",7
+791,"Fallout 76",7
+792,"The Elder Scrolls: Blades",7
+793,"The Elder Scrolls: Blades",7
+794,"The Elder Scrolls: Blades",7
+795,Starfield,7
+796,Starfield,7
+797,"The Elder Scrolls: Castles",7
+798,"The Elder Scrolls: Castles",7
+799,"The Elder Scrolls IV: Oblivion Remastered",7
+800,"The Elder Scrolls IV: Oblivion Remastered",7
+801,"The Elder Scrolls IV: Oblivion Remastered",7
+802,"The Elder Scrolls VI",7

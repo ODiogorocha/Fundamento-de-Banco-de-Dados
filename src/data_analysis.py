@@ -36,15 +36,19 @@ def build_transaction_dataset(df):
     transactions = grouped['items'].tolist()
 
     all_items = sorted(set(item for sublist in transactions for item in sublist))
+    
+    # Altere esta linha:
     encoded_df = pd.DataFrame([{item: int(item in transaction) for item in all_items} for transaction in transactions])
+    
+    # Adicione esta linha para converter para booleano:
+    encoded_df = encoded_df.astype(bool)
+    
     return encoded_df
 
-
-def run_apriori_analysis(transactions_df, min_support=0.2, min_lift=1.0):
+def run_apriori_analysis(transactions_df, min_support=0.01, min_lift=1.0): # Altere aqui
     itemsets = apriori(transactions_df, min_support=min_support, use_colnames=True)
     rules = association_rules(itemsets, metric="lift", min_threshold=min_lift)
     return itemsets, rules
-
 
 def plot_release_timeline(df):
     plt.figure(figsize=(10, 5))
@@ -75,8 +79,8 @@ def plot_rules(rules):
 def main():
     db_config = {
         'host': 'localhost',
-        'user': 'seu_usuario',      # Substitua aqui
-        'password': 'sua_senha',    # Substitua aqui
+        'user': 'root',          # Verifique e ajuste conforme seu 'database.py' e MySQL
+        'password': '06112004 Wh',    # Substitua aqui
         'database': 'fromsoftware_db'
     }
 
@@ -87,7 +91,18 @@ def main():
     expansion_data = connector.get_game_expansion_data()
     transaction_df = build_transaction_dataset(expansion_data)
 
-    print("Executando Apriori...")
+    # --- Adicione essas linhas para depuração ---
+    print("\n--- Conteúdo de transaction_df (primeiras 5 linhas) ---")
+    print(transaction_df.head())
+    print(f"\n--- Dimensões de transaction_df: {transaction_df.shape} ---")
+    print(f"--- Colunas de transaction_df: {transaction_df.columns.tolist()} ---")
+    print(f"--- Soma de True por coluna (exemplos): ---")
+    # Mostra a soma de 'True' para as primeiras 10 colunas, se houver
+    if not transaction_df.empty:
+        print(transaction_df.iloc[:, :10].sum())
+    # --- Fim das linhas de depuração ---
+
+    print("\nExecutando Apriori...")
     itemsets, rules = run_apriori_analysis(transaction_df)
 
     print("Gerando gráficos...")

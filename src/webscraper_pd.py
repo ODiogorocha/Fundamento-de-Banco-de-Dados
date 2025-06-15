@@ -1,4 +1,6 @@
 import pandas as pd
+import re
+from datetime import date
 
 class DataTransformer:
     def __init__(self):
@@ -164,6 +166,9 @@ class DataTransformer:
         serie.iloc[0] = studio  # Nome da empresa
 
         for row in data.itertuples(index=False):
+            # DEBUG: O que cada linha da infobox está retornando (manter para depuração, opcionalmente)
+            print(f"DEBUG_TRANSFORMER: Processando linha da infobox: {row[0]} - {row[1]}") 
+
             if row[0] == 'Founded':
                 serie.iloc[1] = row[1]
             elif row[0] == 'Headquarters':
@@ -177,55 +182,78 @@ class DataTransformer:
             elif row[0] == 'Number of employees':
                 serie.iloc[6] = row[1]
         
+        # DEBUG: O que a série final contém antes de virar DataFrame (manter para depuração, opcionalmente)
+        print("DEBUG_TRANSFORMER: Série final em create_company_dataframe:")
+        print(serie)
+
         return pd.DataFrame([serie], columns=columns)
         
-    def format_company_data(self, data):        
-        serie = pd.Series(data.iloc[0], index=data.columns)
-        new_series = []
-        parts_founded = []
-        parts_head = []
-        parts_type = []
-        parts_num_employees = []
+    def format_company_data(self, data):
+        # CUIDADO: Este DataFrame 'data' tem uma estrutura específica vinda de create_company_dataframe
+        # Ele já tem colunas como 'Nome', 'Fundação', 'Sede', etc.
+        # O objetivo aqui é APENAS formatar os VALORES dessas colunas para o tipo correto.
 
-        for row in data.itertuples(index=False):
-            parts_founded = row[1].split(';')
+        # Cria uma cópia para evitar SettingWithCopyWarning ou modificar o original inesperadamente
+        formatted_data = data.copy()
 
-            # Se houver ';' no campo, pega o valor antes do ';'
-            if len(parts_founded) > 1:
-                parts_founded = parts_founded[0]
-            
-            # Se houver vírgula, pega o valor após a vírgula
-            parts_founded = parts_founded.split(', ')
-            if len(parts_founded) > 1:
-                serie.loc['Fundação'] = parts_founded[1].strip()
+        # Tratamento para 'Fundação'
+        if 'Fundação' in formatted_data.columns and pd.notna(formatted_data['Fundação'].iloc[0]):
+            foundation_str = str(formatted_data['Fundação'].iloc[0])
 
-            parts_head = row[3].split('(')
-            if len(parts_head) > 1:
-                serie.loc['Head'] = parts_head[0].strip()  # Recebe o valor anterior ao '('
+            print(f"DEBUG: String original de Fundação: '{foundation_str}'")
 
-            parts_type = row[5].split('(')
-            if len(parts_type) > 1:
-                serie.loc['Tipo'] = parts_type[0].strip()
-
-            parts_num_employees = row[6].split('>')
-            
-            # Se houver '>' no campo, pega o valor após o '>' e e anterior ao '('
-            # Se não houver, pega o valor anterior ao '('
-            # Se não houver nada disso, segue normal
-            if len(parts_num_employees) > 1: 
-                serie.loc['NumEmpregados'] = parts_num_employees[1].split('(')[0].strip()
+            match_year = re.search(r'\b(\d{4})\b', foundation_str)
+            if match_year:
+                year = int(match_year.group(1))
+                try:
+                    parsed_date = date(year, 1, 1)
+                    print(f"DEBUG: Data parseada e pronta para o DB: {parsed_date}")
+                    formatted_data.loc[0, 'Fundação'] = parsed_date # Atribui ao DataFrame
+                except ValueError:
+                    print(f"DEBUG: Erro ValueError ao criar objeto date para ano: {year}")
+                    formatted_data.loc[0, 'Fundação'] = None
             else:
-                parts_num_employees = row[6].split('(')      
-                if len(parts_num_employees) > 1:
-                    serie.loc['NumEmpregados'] = parts_num_employees[0].strip()
-                else:
-                    parts_num_employees = row[6]
+                print(f"DEBUG: Regex não encontrou 4 dígitos de ano na string: '{foundation_str}'")
+                formatted_data.loc[0, 'Fundação'] = None
+        else:
+            print("DEBUG: Coluna 'Fundação' ausente ou valor é NaN no DataFrame de entrada.")
+            formatted_data.loc[0, 'Fundação'] = None
 
-        new_series.append(serie)
 
-        return pd.DataFrame(new_series, columns=data.columns)
-            
+        # Tratamento para 'Head'
+        if 'Head' in formatted_data.columns and pd.notna(formatted_data['Head'].iloc[0]):
+            head_str = str(formatted_data['Head'].iloc[0])
+            parts_head = head_str.split('(')
+            formatted_data.loc[0, 'Head'] = parts_head[0].strip() if len(parts_head) > 1 else head_str.strip()
+        else:
+            formatted_data.loc[0, 'Head'] = None
 
+        # Tratamento para 'Tipo'
+        if 'Tipo' in formatted_data.columns and pd.notna(formatted_data['Tipo'].iloc[0]):
+            type_str = str(formatted_data['Tipo'].iloc[0])
+            parts_type = type_str.split('(')
+            formatted_data.loc[0, 'Tipo'] = parts_type[0].strip() if len(parts_type) > 1 else type_str.strip()
+        else:
+            formatted_data.loc[0, 'Tipo'] = None
+
+        # Tratamento para 'NumEmpregados'
+        if 'NumEmpregados' in formatted_data.columns and pd.notna(formatted_data['NumEmpregados'].iloc[0]):
+            num_employees_str = str(formatted_data['NumEmpregados'].iloc[0])
+            match_employees = re.search(r'\d+', num_employees_str.replace(',', ''))
+            if match_employees:
+                formatted_data.loc[0, 'NumEmpregados'] = int(match_employees.group(0))
+            else:
+                formatted_data.loc[0, 'NumEmpregados'] = None
+        else:
+            formatted_data.loc[0, 'NumEmpregados'] = None
+
+        # ATENÇÃO: Esta função DEVE retornar o DataFrame formatado, não um novo DataFrame com uma série.
+        # A linha 'new_series.append(serie)' e 'return pd.DataFrame(new_series, columns=data.columns)'
+        # da sua versão anterior (que você me forneceu para DataTransformer) parece estar incorreta
+        # para o que create_company_dataframe já retorna.
+        # O retorno deve ser o próprio DataFrame com os valores já ajustados.
+        return formatted_data # <--- ESTA É A MUDANÇA CRÍTICA AQUI.
+    
 class WikipediaScraper:
     def __init__(self, url):
         self.tables = None
@@ -304,14 +332,36 @@ class WikipediaScraper:
 
     def formated_company_info(self):
         if self.tables is None:
-            self.read_tables_from_wikipedia()
+            self.read_tables_from_wikipedia() # Chama o leitor de tabelas
 
-        data = self.extract_infobox()
+        # DEBUG: Verifica o resultado de read_tables_from_wikipedia
+        if self.tables is None:
+            print("DEBUG_SCRAPER: self.tables é None após read_tables_from_wikipedia.")
+        else:
+            print(f"DEBUG_SCRAPER: {len(self.tables)} tabelas lidas.")
+
+        data = self.extract_infobox() # Extrai a infobox
+
+        # DEBUG: Verifica o DataFrame da infobox
+        if data is None:
+            print("DEBUG_SCRAPER: data (infobox) é None.")
+        else:
+            print("DEBUG_SCRAPER: Infobox extraída:")
+            print(data)
+
         if data is not None:
             transformer = DataTransformer()
             studio = transformer.get_studios(self.url)
-            data = transformer.create_company_dataframe(data, studio)
-            data = transformer.format_company_data(data)
+            print(f"DEBUG_SCRAPER: Estúdio identificado: {studio}") # DEBUG
+
+            data = transformer.create_company_dataframe(data, studio) # Cria o DataFrame da empresa
+            print("DEBUG_SCRAPER: DataFrame da empresa após create_company_dataframe:") # DEBUG
+            print(data)
+
+            data = transformer.format_company_data(data) # Formata os dados da empresa
+            print("DEBUG_SCRAPER: DataFrame da empresa após format_company_data:") # DEBUG
+            print(data)
+
             return data
         else:
             print("Não foi possível extrair as informações da empresa.")
