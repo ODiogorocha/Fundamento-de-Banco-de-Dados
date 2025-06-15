@@ -5,7 +5,7 @@ import mysql.connector
 
 # Importa as classes e funções dos outros arquivos
 from webscraper_pd import WikipediaScraper, DataTransformer
-from data_analysis import DatabaseConnector, build_transaction_dataset, run_apriori_analysis, plot_release_timeline, plot_frequent_itemsets, plot_rules
+from data_analysis import DatabaseConnector, build_transaction_dataset, plot_release_timeline
 from data_visualization import run_query, plot_bar_chart, generate_visualizations as generate_sql_visualizations
 from database import connect as db_connect # Renomeado para evitar conflito
 
@@ -32,19 +32,15 @@ def setup_database(config):
 
 def insert_company_data(connector, company_df):
     """Insere dados da empresa no banco de dados."""
-    # MODIFICAÇÃO: Usar buffered=True para evitar 'Unread result found' em get_company_id
     cursor = connector.connection.cursor(buffered=True)
     company_id = None
     try:
-        # Inserir atividade (se não existir)
         cursor.execute("INSERT IGNORE INTO atividEmp (atividade) VALUES (%s)", (company_df['Atividade'].iloc[0],))
         connector.connection.commit()
 
-        # Inserir tipo (se não existir)
         cursor.execute("INSERT IGNORE INTO tipoEmp (tipo) VALUES (%s)", (company_df['Tipo'].iloc[0],))
         connector.connection.commit()
 
-        # Inserir empresa
         query = """
         INSERT INTO empresa (nome, fundacao, sede, head, atividade, tipo, numEmpregados)
         VALUES (%s, %s, %s, %s, %s, %s, %s)
@@ -67,7 +63,6 @@ def insert_company_data(connector, company_df):
         cursor.execute(query, data)
         connector.connection.commit()
         print(f"Dados da empresa '{company_df['Nome'].iloc[0]}' inseridos/atualizados.")
-        # Passa o cursor para get_company_id
         company_id = cursor.lastrowid if cursor.lastrowid else get_company_id(cursor, company_df['Nome'].iloc[0])
     except mysql.connector.Error as err:
         print(f"Erro ao inserir empresa: {err}")
@@ -78,14 +73,12 @@ def insert_company_data(connector, company_df):
 
 def get_company_id(cursor, company_name):
     """Obtém o ID de uma empresa pelo nome."""
-    # O cursor já está aberto e gerenciado pela função chamadora
     cursor.execute("SELECT id FROM empresa WHERE nome = %s", (company_name,))
     result = cursor.fetchone()
     return result[0] if result else None
 
 def insert_game_data(connector, games_df, id_empresa):
     """Insere dados de jogos no banco de dados."""
-    # MODIFICAÇÃO: Usar buffered=True
     cursor = connector.connection.cursor(buffered=True)
     try:
         for _, row in games_df.iterrows():
@@ -103,19 +96,17 @@ def insert_game_data(connector, games_df, id_empresa):
 
 def get_game_id(cursor, game_name):
     """Obtém o ID de um jogo pelo nome."""
-    # O cursor já está aberto e gerenciado pela função chamadora
     cursor.execute("SELECT id FROM jogo WHERE nome = %s", (game_name,))
     result = cursor.fetchone()
     return result[0] if result else None
 
 def insert_publisher_data(connector, games_df):
     """Insere dados de publishers e publicações."""
-    # AQUI ESTÁ A MUDANÇA: Use buffered=True ao criar o cursor
     cursor = connector.connection.cursor(buffered=True)
     try:
         for _, row in games_df.iterrows():
             publisher_name = row['International publisher'] if 'International publisher' in games_df.columns and pd.notna(row['International publisher']) else None
-            game_id = get_game_id(cursor, row['Title']) # <-- Passa o cursor aqui
+            game_id = get_game_id(cursor, row['Title'])
 
             year = None
             if 'Release Date' in row and pd.notna(row['Release Date']):
@@ -160,13 +151,12 @@ def insert_publisher_data(connector, games_df):
 
 def insert_platform_data(connector, games_df):
     """Insere dados de plataformas e compatibilidade."""
-    # MODIFICAÇÃO: Usar buffered=True
     cursor = connector.connection.cursor(buffered=True)
     try:
         for _, row in games_df.iterrows():
             platform_name = row['System'] if 'System' in games_df.columns and pd.notna(row['System']) else \
                             row['Platform(s)'] if 'Platform(s)' in games_df.columns and pd.notna(row['Platform(s)']) else None
-            game_id = get_game_id(cursor, row['Title']) # <-- Passa o cursor aqui
+            game_id = get_game_id(cursor, row['Title'])
 
             if platform_name and game_id:
                 try:
@@ -190,11 +180,10 @@ def insert_platform_data(connector, games_df):
 
 def insert_expansion_data(connector, expansions_df):
     """Insere dados de expansões."""
-    # MODIFICAÇÃO: Usar buffered=True
     cursor = connector.connection.cursor(buffered=True)
     try:
         for _, row in expansions_df.iterrows():
-            game_id = get_game_id(cursor, row['Game']) # <-- Passa o cursor aqui
+            game_id = get_game_id(cursor, row['Game'])
 
             if game_id:
                 try:
@@ -243,7 +232,6 @@ def main():
         if company_info_df is not None and not company_info_df.empty:
             company_name = company_info_df['Nome'].iloc[0]
             print(f"Inserindo/Atualizando dados da empresa: {company_name}")
-            # The cursor for insert_company_data will now be buffered
             id_empresa = insert_company_data(db_connector_loader, company_info_df)
 
             games_df = scraper.formated_products_table()
@@ -262,45 +250,21 @@ def main():
             else:
                 print(f"Nenhuma expansão encontrada para {company_name}.")
         else:
-            print(f"Não foi possível obter informações da empresa para {url}.")
+            print("Nenhum dado da empresa encontrado ou DataFrame vazio.")
 
-    db_connector_loader.connection.close()
-    print("Carga de dados concluída.")
+    print("\n--- Etapa 4: Análises e Visualizações ---")
 
-    print("\n--- Etapa 4: Visualização dos Dados ---")
+    # Conexão para consultas e visualizações
+    db_connector_query = DatabaseConnector(db_config)
 
-    db_connector_analysis = DatabaseConnector(db_config)
+    # Visualizações SQL genéricas
+    generate_sql_visualizations(db_connector_query)
 
-    print("Carregando dados para análise de associação...")
-    expansion_data = db_connector_analysis.get_game_expansion_data()
-    if not expansion_data.empty:
-        transaction_df = build_transaction_dataset(expansion_data)
-        if not transaction_df.empty:
-            print("Executando Apriori e gerando gráficos de regras de associação...")
-            itemsets, rules = run_apriori_analysis(transaction_df)
-            plot_frequent_itemsets(itemsets)
-            plot_rules(rules)
-            print("Gráficos de Apriori salvos: frequent_itemsets.png, association_rules.png")
-        else:
-            print("Nenhum dado de transação para Apriori.")
-    else:
-        print("Nenhum dado de jogo/expansão para análise de associação.")
+    # Visualização timeline dos lançamentos de jogos (por empresa)
+    print("\nVisualizando linha do tempo de lançamentos de jogos:")
+    plot_release_timeline(db_connector_query)
 
-    print("Gerando linha do tempo de lançamentos...")
-    release_df = db_connector_analysis.get_release_year_data()
-    if not release_df.empty:
-        plot_release_timeline(release_df)
-        print("Gráfico da linha do tempo de lançamentos salvo: release_timeline.png")
-    else:
-        print("Nenhum dado de lançamento para a linha do tempo.")
-
-    db_connector_analysis.connection.close()
-
-    print("\nGerando visualizações adicionais baseadas em SQL...")
-    generate_sql_visualizations()
-    print("Visualizações adicionais geradas.")
-
-    print("\nTodas as etapas concluídas com sucesso!")
+    print("\nExecução concluída.")
 
 if __name__ == "__main__":
     main()
